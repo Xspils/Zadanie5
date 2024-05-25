@@ -14,8 +14,7 @@ builder.Services.AddDbContext<YourDbContext>(options =>
 var app = builder.Build();
 
 builder.Services.AddScoped<ITripRepository, TripRepository>();
-builder.Services.AddScoped<IClientRepository, ClientRepository>();  // Assuming you have a ClientRepository
-
+builder.Services.AddScoped<IClientRepository, ClientRepository>(); 
 
 if (app.Environment.IsDevelopment())
 {
@@ -26,7 +25,7 @@ if (app.Environment.IsDevelopment())
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://example.com")  // Replace with the actual origin
+        builder => builder.WithOrigins("http://example.com")  
                           .AllowAnyHeader()
                           .AllowAnyMethod());
 });
